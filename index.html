@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba_JS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="App_button.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1 class="main-title">Proyecto - Matemática computacional</h1>
+    </header>
+    <main class="main">
+        <aside class="aside">
+            <div class="top-opt">
+                <div class="btn-div">
+                    <button id="btn-upload-img" onclick="uploadImg()">Subir imagen</button>
+                </div>
+            </div>
+            <div class="bot-opt">
+                <img id="imagen" src="Images/grayscale-image.jpg" alt="uploaded image">
+                <button id="btn-convert-img" onclick="transformImage()">Transformar</button>
+            </div>
+        </aside>
+        <article class="article">
+            <div class="container-canvas" id="container-canvas">
+                <canvas id="myChart"></canvas>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
