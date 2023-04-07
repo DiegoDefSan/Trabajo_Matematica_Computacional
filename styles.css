@@ -8,7 +8,9 @@
     text-align: center;
     width: 100vw;
     height: 8vh;
-    background-color: cyan;
+    background-color: #1a1e29;
+    color: #fff;
+    font-weight:100;
 }
 .main-title {
     padding: 10px 0;
@@ -16,13 +18,15 @@
 .main {
     height: 92vh;
     width: 100vw;
-    background-color: bisque;
+    background-color: #01c38e;
     display: flex;
 }
 .aside {
-    width: 30%;
-    height: 100%;
-    background-color: coral;
+    width: 28%;
+    height: 80%;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #132d46;
     display: flex;
     flex-direction: column;
 }
@@ -30,7 +34,6 @@
     width: 80%;
     height: 100px;
     margin: 20px auto;
-    background-color: blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +42,6 @@
     width: 80%;
     height: 70%;
     margin: 0 auto;
-    background-color: chartreuse;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,6 +53,7 @@
     cursor: pointer;
     border-radius: 20px;
     border:none;
+    background-color: #fff;
 }
 .container-img {
     width: 100%;
@@ -68,9 +71,10 @@
     cursor: pointer;
     border-radius: 20px;
     border:none;
+    background-color: #fff;
 }
 .article {
-    background-color: orange;
+    background-color: #01c38e;
     width: 70%;
 }
 .container-canvas {
