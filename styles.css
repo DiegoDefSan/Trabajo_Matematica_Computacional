@@ -76,7 +76,23 @@
 .article {
     background-color: #01c38e;
     width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.container-canvas {
-    margin:auto;
+.left-side-article {
+    width: 50%;
+}
+.right-side-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+.top-right-side-article {
+    height: 50%;
+}
+.bottom-right-side-article {
+    height: 50%;
 }
