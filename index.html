@@ -15,33 +15,33 @@
         <h1 class="main-title">Proyecto - Matemática computacional</h1>
     </header>
     <main class="main">
-        <aside class="aside">
-            <div class="top-opt">
-                <div class="btn-div">
-                    <button id="btn-upload-img" onclick="uploadImg()">Subir imagen</button>
+        <article class="article-top">
+            <div class="aside">
+                <div class="top-opt">
+                    <div class="btn-div">
+                        <button id="btn-upload-img" onclick="uploadImg()">Subir imagen</button>
+                    </div>
+                </div>
+                <div class="bot-opt">
+                    <img id="imagen" src="Images/grayscale-image.jpg" alt="uploaded image">
+                    <select required name="options" id="options">
+                        <option class="opt-options" value="" selected disabled hidden>Seleccione una opción</option>
+                        <option class="opt-options" value="equalization">Ecualizacion</option>
+                        <option class="opt-options" value="expantion">Expansion</option>
+                    </select>
+                    <button id="btn-convert-img" disabled onclick="transformImage()">Transformar</button>
                 </div>
             </div>
-            <div class="bot-opt">
-                <img id="imagen" src="Images/grayscale-image.jpg" alt="uploaded image">
-                <select required name="options" id="options">
-                    <option class="opt-options" value="" selected disabled hidden>Seleccione una opción</option>
-                    <option class="opt-options" value="equalization">Ecualizacion</option>
-                    <option class="opt-options" value="expantion" disabled>Expansion</option>
-                </select>
-                <button id="btn-convert-img" disabled onclick="transformImage()">Transformar</button>
-            </div>
-        </aside>
-        <article class="article">
-            <div class="left-side-article">
+            <div class="article">
                 <div class="container-canvas" id="container-canvas"></div>
             </div>
-            <div class="right-side-article">
-                <div class="top-right-side-article">
-                    <div class="new-container-canvas" id="new-container-canvas"></div>
-                </div>
-                <div class="bottom-right-side-article" id="updated-img">
-                    
-                </div>
+        </article>
+        <article class="bottom-article">
+            <div class="top-right-side-article">
+                <div class="new-container-canvas" id="new-container-canvas"></div>
+            </div>
+            <div class="bottom-right-side-article" id="updated-img">
+                
             </div>
         </article>
     </main>
