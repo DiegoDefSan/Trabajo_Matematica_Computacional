@@ -161,6 +161,9 @@ function transformImage() {
     getPixeles(img, length, intensidades);
     constructBarChart(intensidades, length, "container-canvas", "myChart");
 
+    
     // Ecualización
-    editImageEcualizacion(img, intensidades, length);
+    if (options.value=='equalization')
+        editImageEcualizacion(img, intensidades, length);
 }
+

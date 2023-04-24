@@ -7,6 +7,7 @@
     <title>Prueba_JS</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="App_button.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
 </head>
 <body>
@@ -22,7 +23,12 @@
             </div>
             <div class="bot-opt">
                 <img id="imagen" src="Images/grayscale-image.jpg" alt="uploaded image">
-                <button id="btn-convert-img" onclick="transformImage()">Transformar</button>
+                <select required name="options" id="options">
+                    <option class="opt-options" value="" selected disabled hidden>Seleccione una opción</option>
+                    <option class="opt-options" value="equalization">Ecualizacion</option>
+                    <option class="opt-options" value="expantion" disabled>Expansion</option>
+                </select>
+                <button id="btn-convert-img" disabled onclick="transformImage()">Transformar</button>
             </div>
         </aside>
         <article class="article">
@@ -40,4 +46,5 @@
         </article>
     </main>
 </body>
+<script src="extra_options.js"></script>
 </html>
