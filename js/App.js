@@ -61,7 +61,7 @@ function constructBarChart(arrIntensities, length, idContainer, idCanvas) {
     let indexes = [];
     // vector<int> indexes</int>
     
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) { // Eje x
         indexes.push(i);
         // indexes.push_back(i);
     }
@@ -74,7 +74,7 @@ function constructBarChart(arrIntensities, length, idContainer, idCanvas) {
             labels: indexes,
             datasets: [{
                 label: 'Intensidades de negro',
-                data: arrIntensities,
+                data: arrIntensities, // Eje y
                 backgroundColor: "#000",
                 borderWidth: 1
             }]
@@ -100,11 +100,14 @@ function constructBarChart(arrIntensities, length, idContainer, idCanvas) {
 function editImageEcualizacion(img, intensidades, length) {
     // Creacion del canvas
     let newCanvas = document.createElement('canvas');
+    newCanvas.id='new-canvas'
     newCanvas.width = img.width;
     newCanvas.height = img.height;
 
     // Asignar tamaño máximo a la imagen
-    newCanvas.style.width="260px";
+    newCanvas.style.maxHeight="50%";
+    newCanvas.style.objectFit = 'contain'
+    newCanvas.style.aspectRatio = '3/2'
 
     // Obtener el contexto 2D del canvas
     const ctx = newCanvas.getContext('2d');
@@ -135,13 +138,13 @@ function editImageEcualizacion(img, intensidades, length) {
         let b = pixels[i + 2];
         let intensity = Math.round((r + g + b) / 3);
 
-        // Se obtiene la nueva intensidad a partir de la frecuencia acumulada y la ecuación ((L-1)/M*N)(Hi)
+        // Se obtiene la nueva intensidad a partir de la frecuencia acumulada y la ecuación ((L-1)/M*N)(Fi)
         let newIntensity=Math.round(((255)/(newCanvas.width*newCanvas.height))*(frecuenciaAcumulada[intensity])); 
 
         // Se le asigna las nuevas intensidades;
-        pixels[i] = newIntensity;
-        pixels[i + 1] = newIntensity;
-        pixels[i + 2] = newIntensity;
+        pixels[i] = newIntensity; // Pixel red
+        pixels[i + 1] = newIntensity; // Pixel green
+        pixels[i + 2] = newIntensity; // Pixel blue
 
         newIntensidades[newIntensity]++;
     }
@@ -161,11 +164,15 @@ function editImageEcualizacion(img, intensidades, length) {
 function extendHistogram(img,intensidades,length) {
     // Creacion del canvas
     let newCanvas = document.createElement('canvas');
+    newCanvas.id = "new-canvas";
     newCanvas.width = img.width;
     newCanvas.height = img.height;
 
     // Asignar tamaño máximo a la imagen
-    newCanvas.style.width="260px";
+    newCanvas.style.maxHeight="50%";
+    newCanvas.style.objectFit = 'contain'
+    newCanvas.style.aspectRatio = '3/2'
+
 
     // Obtener el contexto 2D del canvas
     const ctx = newCanvas.getContext('2d');
@@ -191,16 +198,14 @@ function extendHistogram(img,intensidades,length) {
         if (intensity>maxIntensity) maxIntensity=intensity;
     }
 
-    console.log(minIntensity);
-    console.log(maxIntensity);
     
     // Quiero examndir mi histograma de [minIntensity, maxIntensity] -> [0, 255]
     // P1 = (minIntensity, 0) y P2 = (maxIntensity, 255)
-    // y=pendiente*x+b_added
+    //      (x1, y1)                  (x2, y2)
+    // y=pendiente*x+b_added // x=intensity
+    // b_added=y-pendiente*x
     let pendiente = (255-0)/(maxIntensity-minIntensity);
     let b_added = 255-maxIntensity*pendiente;
-    console.log(pendiente);
-    console.log(b_added);
 
     let newIntensidades=new Array(length).fill(0);
 
@@ -214,7 +219,7 @@ function extendHistogram(img,intensidades,length) {
 
         let newIntensity=Math.round(pendiente*intensity+b_added);
         //console.log(newIntensity);
-        pixels[i]=newIntensity;
+        pixels[i]=newIntensity;     
         pixels[i+1]=newIntensity;
         pixels[i+2]=newIntensity;
 
@@ -252,6 +257,10 @@ function transformImage() {
     // Extensiónd e histograma
     if (options.value=='expantion')
         extendHistogram(img, intensidades, length);
+
+    
+
+    createButton();
 
 }
 
