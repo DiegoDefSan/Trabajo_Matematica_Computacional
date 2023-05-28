@@ -55,6 +55,7 @@ body {
 }
 .participante .photo {
     height: 260px;
+    max-width: 80%;
     object-fit: contain;
     margin: 20px 0;
 }
